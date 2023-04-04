@@ -8,5 +8,6 @@ router.route('/')
 
 router.route('/:id')
   .get(productServices.getProductById)
+  .patch(productServices.patchProduct)
 
 module.exports = router

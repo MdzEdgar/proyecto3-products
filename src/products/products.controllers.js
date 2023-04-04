@@ -26,8 +26,16 @@ const createProduct = async(productObj) => {
 }
 
 const updateProduct = async(id, productObj) => {
-    //? Your code here:
-    
+    const selectedProduct = await Products.findOne({
+        where: {
+            id,
+        }
+    })
+
+    if (!selectedProduct) return null
+
+    const modifiedProduct = await selectedProduct.update(productObj)
+    return modifiedProduct
 }
 
 const deleteProduct = async(id) => {
