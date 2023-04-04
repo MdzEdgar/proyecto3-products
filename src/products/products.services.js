@@ -51,9 +51,24 @@ const patchProduct = (req, res) => {
     })
 }
 
+const deleteProduct = (req, res) => {
+  const id = Number(req.params.id)
+  productControllers.deleteProduct(id)
+    .then(data => {
+      if(!data){
+        return res.status(404).json({message: 'Invalid ID'})
+      }
+      res.status(240).json()
+    })
+    .catch(err => {
+      res.status(400).json({message: 'Bad request', err})
+    })
+}
+
 module.exports = {
   getAllProducts,
   getProductById,
   postProduct,
-  patchProduct
+  patchProduct,
+  deleteProduct
 }

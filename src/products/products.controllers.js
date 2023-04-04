@@ -39,8 +39,12 @@ const updateProduct = async(id, productObj) => {
 }
 
 const deleteProduct = async(id) => {
-    //? Your code here:
-
+    const product = Products.destroy({
+        where: {
+            id,
+        }
+    })
+    return product
 }
 
 module.exports = {
