@@ -6,7 +6,13 @@ const findAllProducts = async() => {
 }
 
 const findProductById = async(id) => {
-    //? Your code here:
+    const data = await Products.findOne({
+        where: {
+            id,
+        }
+    })
+
+    return data
 }
 
 const createProduct = async(productObj) => {
