@@ -24,7 +24,19 @@ const getProductById = (req, res) => {
     })
 }
 
+const postProduct = (req, res) => {
+  const productObj = req.body
+  productControllers.createProduct(productObj)
+    .then(data => {
+      res.status(201).json(data)
+    })
+    .catch(err => {
+      res.status(400).json({message: 'Bad request', err})
+    })
+}
+
 module.exports = {
   getAllProducts,
-  getProductById
+  getProductById,
+  postProduct
 }

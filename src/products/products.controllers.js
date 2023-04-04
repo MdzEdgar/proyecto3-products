@@ -16,7 +16,13 @@ const findProductById = async(id) => {
 }
 
 const createProduct = async(productObj) => {
-    //? Your code here:
+    const newProduct = await Products.create({
+        name: productObj.name,
+        description: productObj.description,
+        price: productObj.price,
+        stock: productObj.stock
+    })
+    return newProduct
 }
 
 const updateProduct = async(id, productObj) => {
